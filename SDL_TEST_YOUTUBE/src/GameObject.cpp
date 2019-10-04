@@ -1,5 +1,6 @@
-#include <iostream>
 #include "GameObject.hpp"
+
+#include <iostream>
 #include "TextureManager.hpp"
 
 GameObject::GameObject(const char* texture, SDL_Renderer* renderer, const int x, const int y)
@@ -16,7 +17,6 @@ GameObject::GameObject(const char* texture, SDL_Renderer* renderer, const int x,
 GameObject::~GameObject()
 {
     SDL_DestroyTexture(texture);
-    SDL_DestroyRenderer(renderer);    
 }
 
 void GameObject::setPosition(const int x, const int y)

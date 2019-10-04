@@ -1,5 +1,6 @@
-#include <iostream>
 #include "Game.hpp"
+
+#include <iostream>
 #include "TextureManager.hpp"
 
 Game::Game() : window(nullptr), renderer(nullptr)
@@ -30,7 +31,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
         return;
     }
     
-     renderer = SDL_CreateRenderer(window, -1, 0);
+     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     
     if(renderer == nullptr) {
         std::cout << "Error creating SDL Renderer: " << SDL_GetError() << std::endl;
@@ -39,6 +40,15 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
     }
 
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    
+    //Initialize PNG loading
+    int imgFlags = IMG_INIT_PNG;
+    if( !( IMG_Init( imgFlags ) & imgFlags ) )
+    {
+        printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
+        isRunning = false;
+        return;
+    }
     
     // create player
     player = std::make_unique<GameObject>("assets/player.png", renderer);    
@@ -84,8 +94,13 @@ void Game::handleEvents()
 }
 
 void Game::clean() {
-    SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    renderer = nullptr;
+    
+    SDL_DestroyWindow(window);
+    window = nullptr;
+    
+    IMG_Quit();
     SDL_Quit();
     std::cout << "Game cleaned!" << std::endl;
 }
