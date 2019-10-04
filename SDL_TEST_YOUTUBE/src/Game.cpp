@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Game.hpp"
+#include "TextureManager.hpp"
 
-SDL_Texture* playerTex;
 SDL_Rect srcR, destR;
 
 Game::Game() : window(nullptr), renderer(nullptr)
@@ -43,10 +43,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     
     // create player
-    SDL_Surface* tmpSurface = IMG_Load("assets/player.png");
-    playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-    SDL_FreeSurface(tmpSurface);
-    
+    playerTex = TextureManager::LoadTexture("assets/player.png", renderer);
     std::cout << "created render! ..." << std::endl;
 }
 

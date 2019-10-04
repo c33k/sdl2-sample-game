@@ -7,6 +7,7 @@ const int SCREEN_HEIGHT = 900;
 
 int main(int argc, char* argv[])
 {
+    // using this to limit frame rate to 60 frames per second
     const int FPS = 60;
     const int frameDelay = 1000 / FPS;
     
