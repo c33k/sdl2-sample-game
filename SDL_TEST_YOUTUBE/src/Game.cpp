@@ -2,8 +2,6 @@
 #include "Game.hpp"
 #include "TextureManager.hpp"
 
-SDL_Rect srcR, destR;
-
 Game::Game() : window(nullptr), renderer(nullptr)
 {}
 
@@ -43,23 +41,19 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     
     // create player
-    playerTex = TextureManager::LoadTexture("assets/player.png", renderer);
+    player = std::make_unique<GameObject>("assets/player.png", renderer);    
     std::cout << "created render! ..." << std::endl;
 }
 
 void Game::update()
 {
-    destR.w = 172;
-    destR.h = 238;
-    destR.y = windowHeight - destR.h;
+    player->update();
 }
 
 void Game::render()
 {
     SDL_RenderClear(renderer);
-    
-    SDL_RenderCopy(renderer, playerTex, NULL, &destR);
-    
+    player->render();
     SDL_RenderPresent(renderer);
 }
 
@@ -72,18 +66,18 @@ void Game::handleEvents()
         case SDL_QUIT:
             isRunning = false;
             break;
-        case SDL_KEYDOWN:
-            switch( event.key.keysym.sym ){
-                case SDLK_LEFT:
-                    destR.x -= 1;
-                    break;
-                case SDLK_RIGHT:
-                    destR.x += 1;
-                    break;
-                default:
-                    break;
-            }
-            break;
+//        case SDL_KEYDOWN:
+//            switch( event.key.keysym.sym ){
+//                case SDLK_LEFT:
+//                    destR.x -= 1;
+//                    break;
+//                case SDLK_RIGHT:
+//                    destR.x += 1;
+//                    break;
+//                default:
+//                    break;
+//            }
+//            break;
         default:
             break;
     }

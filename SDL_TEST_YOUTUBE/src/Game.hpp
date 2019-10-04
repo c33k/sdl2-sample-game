@@ -1,8 +1,10 @@
 #ifndef Game_hpp
 #define Game_hpp
 
+#include <memory>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include "GameObject.hpp"
 
 class Game {
 public:
@@ -20,13 +22,12 @@ public:
     
 private:
     bool isRunning;
+    int windowWidth, windowHeight;
     
     SDL_Window* window;
     SDL_Renderer* renderer;
-    SDL_Texture* playerTex;
     
-    int windowWidth;
-    int windowHeight;
+    std::unique_ptr<GameObject> player;
 };
 
 #endif /* Game_hpp */

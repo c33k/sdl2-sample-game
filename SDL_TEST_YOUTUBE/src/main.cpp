@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include "SDL2/SDL.h"
 #include "./Game.hpp"
 
@@ -14,7 +15,7 @@ int main(int argc, char* argv[])
     Uint32 frameStart;
     int frameTime;
     
-    Game* game = new Game();
+    std::unique_ptr<Game> game = std::make_unique<Game>();
     game->init("Test", SCREEN_WIDTH, SCREEN_HEIGHT, false);
     
     while(game->running()) {
