@@ -3,6 +3,7 @@
 
 #include <memory>
 #include "./GameObject.hpp"
+#include "./Map.hpp"
 
 class Game {
 public:    
@@ -18,6 +19,7 @@ public:
 private:
     bool isRunning;
     std::unique_ptr<GameObject> player;
+    std::unique_ptr<Map> map;
 };
 
 #endif /* Game_hpp */

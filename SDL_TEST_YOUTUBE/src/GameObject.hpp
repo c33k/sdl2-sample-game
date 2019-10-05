@@ -10,10 +10,13 @@ public:
     void update();
     void render();
 
-    void setPosition(const int x, const int y);
+    void moveLeft();
+    void moveRight();
+    void moveUp();
+    void moveDown();
+    
     int getX();
     int getY();
-    
     int getHeight();
     int getWidth();
     

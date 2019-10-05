@@ -20,15 +20,29 @@ GameObject::~GameObject()
     std::cout << "deleted object" << std::endl;
 }
 
-void GameObject::setPosition(const int x, const int y)
+void GameObject::moveLeft()
 {
-    // doesn't allow object to go out of the screen (for now)
-    xpos = (x >= 0) ? x : 0;
-    ypos = (y >= 0) ? y : 0;
+    xpos -= width;
+}
+
+void GameObject::moveRight()
+{
+    xpos += width;
+}
+
+void GameObject::moveUp()
+{
+    ypos -= width;
+}
+
+void GameObject::moveDown()
+{
+    ypos += width;
 }
 
 void GameObject::update()
-{    
+{
+    // uses the whole image
     srcRect.x = 0;
     srcRect.y = 0;
     srcRect.w = width;

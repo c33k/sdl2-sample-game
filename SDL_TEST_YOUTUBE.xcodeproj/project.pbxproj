@@ -15,6 +15,7 @@
 		78046A3A2347DA3B008F1AC7 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78046A382347DA3B008F1AC7 /* TextureManager.cpp */; };
 		78046A3D2347DE26008F1AC7 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78046A3B2347DE26008F1AC7 /* GameObject.cpp */; };
 		78046A4123487729008F1AC7 /* RenderUnity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78046A3F23487728008F1AC7 /* RenderUnity.cpp */; };
+		78046A442348A590008F1AC7 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78046A422348A590008F1AC7 /* Map.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +45,11 @@
 		78046A3C2347DE26008F1AC7 /* GameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
 		78046A3F23487728008F1AC7 /* RenderUnity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderUnity.cpp; sourceTree = "<group>"; };
 		78046A4023487729008F1AC7 /* RenderUnity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RenderUnity.hpp; sourceTree = "<group>"; };
+		78046A422348A590008F1AC7 /* Map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		78046A432348A590008F1AC7 /* Map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
+		7829A8DB2348AF070002F6F0 /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		7829A8DC2348AF070002F6F0 /* ground-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ground-shadow.png"; sourceTree = "<group>"; };
+		7829A8DD2348AF0F0002F6F0 /* water.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = water.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				78046A362347CC27008F1AC7 /* player.png */,
+				7829A8DC2348AF070002F6F0 /* ground-shadow.png */,
+				7829A8DD2348AF0F0002F6F0 /* water.png */,
+				7829A8DB2348AF070002F6F0 /* ground.png */,
 			);
 			path = assets;
 			sourceTree = "<group>";
@@ -110,6 +119,8 @@
 				78046A1C2347B0FA008F1AC7 /* main.cpp */,
 				78046A302347C1A9008F1AC7 /* Game.hpp */,
 				78046A2F2347C1A9008F1AC7 /* Game.cpp */,
+				78046A432348A590008F1AC7 /* Map.hpp */,
+				78046A422348A590008F1AC7 /* Map.cpp */,
 				78046A392347DA3B008F1AC7 /* TextureManager.hpp */,
 				78046A382347DA3B008F1AC7 /* TextureManager.cpp */,
 				78046A3C2347DE26008F1AC7 /* GameObject.hpp */,
@@ -188,6 +199,7 @@
 				78046A1D2347B0FA008F1AC7 /* main.cpp in Sources */,
 				78046A4123487729008F1AC7 /* RenderUnity.cpp in Sources */,
 				78046A3A2347DA3B008F1AC7 /* TextureManager.cpp in Sources */,
+				78046A442348A590008F1AC7 /* Map.cpp in Sources */,
 				78046A3D2347DE26008F1AC7 /* GameObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
