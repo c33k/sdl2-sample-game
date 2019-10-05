@@ -32,18 +32,18 @@ void Game::handleEvents()
         case SDL_QUIT:
             isRunning = false;
             break;
-//        case SDL_KEYDOWN:
-//            switch( event.key.keysym.sym ){
-//                case SDLK_LEFT:
-//                    destR.x -= 1;
-//                    break;
-//                case SDLK_RIGHT:
-//                    destR.x += 1;
-//                    break;
-//                default:
-//                    break;
-//            }
-//            break;
+        case SDL_KEYDOWN:
+            switch( event.key.keysym.sym ){
+                case SDLK_LEFT:
+                    player->setPosition(player->getX() - player->getWidth(), player->getY());
+                    break;
+                case SDLK_RIGHT:
+                    player->setPosition(player->getX() + player->getWidth(), player->getY());
+                    break;
+                default:
+                    break;
+            }
+            break;
         default:
             break;
     }

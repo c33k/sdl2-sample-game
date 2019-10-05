@@ -54,3 +54,13 @@ int GameObject::getWidth()
 {
     return width;
 }
+
+int GameObject::getX()
+{
+    return xpos;
+}
+
+int GameObject::getY()
+{
+    return ypos;
+}

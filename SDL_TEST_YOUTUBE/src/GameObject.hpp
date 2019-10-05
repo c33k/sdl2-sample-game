@@ -11,6 +11,9 @@ public:
     void render();
 
     void setPosition(const int x, const int y);
+    int getX();
+    int getY();
+    
     int getHeight();
     int getWidth();
     
