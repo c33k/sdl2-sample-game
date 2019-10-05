@@ -14,6 +14,7 @@
 		78046A332347C9E0008F1AC7 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78046A322347C9E0008F1AC7 /* SDL2_image.framework */; };
 		78046A3A2347DA3B008F1AC7 /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78046A382347DA3B008F1AC7 /* TextureManager.cpp */; };
 		78046A3D2347DE26008F1AC7 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78046A3B2347DE26008F1AC7 /* GameObject.cpp */; };
+		78046A4123487729008F1AC7 /* RenderUnity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78046A3F23487728008F1AC7 /* RenderUnity.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,8 @@
 		78046A392347DA3B008F1AC7 /* TextureManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureManager.hpp; sourceTree = "<group>"; };
 		78046A3B2347DE26008F1AC7 /* GameObject.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameObject.cpp; sourceTree = "<group>"; };
 		78046A3C2347DE26008F1AC7 /* GameObject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameObject.hpp; sourceTree = "<group>"; };
+		78046A3F23487728008F1AC7 /* RenderUnity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RenderUnity.cpp; sourceTree = "<group>"; };
+		78046A4023487729008F1AC7 /* RenderUnity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RenderUnity.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,7 @@
 		78046A372347D8DB008F1AC7 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				78046A3E234876F2008F1AC7 /* RenderUnity */,
 				78046A1C2347B0FA008F1AC7 /* main.cpp */,
 				78046A302347C1A9008F1AC7 /* Game.hpp */,
 				78046A2F2347C1A9008F1AC7 /* Game.cpp */,
@@ -112,6 +116,15 @@
 				78046A3B2347DE26008F1AC7 /* GameObject.cpp */,
 			);
 			path = src;
+			sourceTree = "<group>";
+		};
+		78046A3E234876F2008F1AC7 /* RenderUnity */ = {
+			isa = PBXGroup;
+			children = (
+				78046A3F23487728008F1AC7 /* RenderUnity.cpp */,
+				78046A4023487729008F1AC7 /* RenderUnity.hpp */,
+			);
+			path = RenderUnity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +186,7 @@
 				78046A312347C1A9008F1AC7 /* Game.cpp in Sources */,
 				78046A2E2347C17D008F1AC7 /* main_render.cpp in Sources */,
 				78046A1D2347B0FA008F1AC7 /* main.cpp in Sources */,
+				78046A4123487729008F1AC7 /* RenderUnity.cpp in Sources */,
 				78046A3A2347DA3B008F1AC7 /* TextureManager.cpp in Sources */,
 				78046A3D2347DE26008F1AC7 /* GameObject.cpp in Sources */,
 			);

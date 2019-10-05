@@ -3,10 +3,9 @@
 #include <iostream>
 #include "TextureManager.hpp"
 
-GameObject::GameObject(const char* texture, SDL_Renderer* renderer, const int x, const int y)
+GameObject::GameObject(const char* texture, const int x, const int y)
 {
-    this->renderer = renderer;
-    this->texture = TextureManager::LoadTexture(texture, this->renderer);
+    this->texture = TextureManager::LoadTexture(texture);
     xpos = x;
     ypos = y;
     
@@ -17,6 +16,8 @@ GameObject::GameObject(const char* texture, SDL_Renderer* renderer, const int x,
 GameObject::~GameObject()
 {
     SDL_DestroyTexture(texture);
+    
+    std::cout << "deleted object" << std::endl;
 }
 
 void GameObject::setPosition(const int x, const int y)
@@ -41,7 +42,7 @@ void GameObject::update()
 
 void GameObject::render()
 {
-    SDL_RenderCopy(renderer, texture, &srcRect, &destRect);
+    SDL_RenderCopy(RenderUnity::renderer, texture, &srcRect, &destRect);
 }
 
 int GameObject::getHeight()

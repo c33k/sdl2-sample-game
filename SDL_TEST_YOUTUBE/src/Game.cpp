@@ -1,58 +1,14 @@
 #include "Game.hpp"
 
 #include <iostream>
-#include "TextureManager.hpp"
+#include "./RenderUnity/RenderUnity.hpp"
 
-Game::Game() : window(nullptr), renderer(nullptr)
-{}
-
-Game::~Game()
-{}
-
-void Game::init(const char* title, int width, int height, bool fullscreen)
+void Game::init()
 {
-    windowWidth = width;
-    windowHeight = height;
-    
-    int flags = fullscreen ? SDL_WINDOW_FULLSCREEN : SDL_WINDOW_SHOWN;
+    player = std::make_unique<GameObject>("assets/player.png");
     isRunning = true;
     
-    if( SDL_Init(SDL_INIT_VIDEO) != 0 ) {
-        std::cout << "Error initializing SDL: " << SDL_GetError() << std::endl;
-        isRunning = false;
-        return;
-    }
-    
-    window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-    
-    if(window == nullptr) {
-        std::cout << "Error creating SDL Window: " << SDL_GetError() << std::endl;
-        isRunning = false;
-        return;
-    }
-    
-     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    
-    if(renderer == nullptr) {
-        std::cout << "Error creating SDL Renderer: " << SDL_GetError() << std::endl;
-        isRunning = false;
-        return;
-    }
-
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    
-    //Initialize PNG loading
-    int imgFlags = IMG_INIT_PNG;
-    if( !( IMG_Init( imgFlags ) & imgFlags ) )
-    {
-        printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
-        isRunning = false;
-        return;
-    }
-    
-    // create player
-    player = std::make_unique<GameObject>("assets/player.png", renderer);    
-    std::cout << "created render! ..." << std::endl;
+    std::cout << "Game initialized!" << std::endl;
 }
 
 void Game::update()
@@ -62,9 +18,9 @@ void Game::update()
 
 void Game::render()
 {
-    SDL_RenderClear(renderer);
+    SDL_RenderClear(RenderUnity::renderer);
     player->render();
-    SDL_RenderPresent(renderer);
+    SDL_RenderPresent(RenderUnity::renderer);
 }
 
 void Game::handleEvents()
@@ -94,13 +50,8 @@ void Game::handleEvents()
 }
 
 void Game::clean() {
-    SDL_DestroyRenderer(renderer);
-    renderer = nullptr;
+    player.reset();
+    isRunning = false;
     
-    SDL_DestroyWindow(window);
-    window = nullptr;
-    
-    IMG_Quit();
-    SDL_Quit();
     std::cout << "Game cleaned!" << std::endl;
 }

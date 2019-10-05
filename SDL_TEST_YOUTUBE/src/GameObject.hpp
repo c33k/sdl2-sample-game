@@ -1,10 +1,10 @@
 #pragma once
 
-#include <SDL2/SDL.h>
+#include "RenderUnity/RenderUnity.hpp"
 
 class GameObject {
 public:
-    GameObject(const char* texture, SDL_Renderer* renderer, const int xpos = 0, const int ypos = 0);
+    GameObject(const char* texture, const int xpos = 0, const int ypos = 0);
     ~GameObject();
     
     void update();
@@ -16,7 +16,6 @@ public:
     
 private:
     int xpos, ypos, width, height;
-    SDL_Renderer* renderer;
     SDL_Texture* texture;
     SDL_Rect srcRect, destRect;
 };
