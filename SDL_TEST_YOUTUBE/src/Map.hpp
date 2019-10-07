@@ -17,10 +17,7 @@ public:
     
 private:
     SDL_Rect src, dest;
-    
-    SDL_Texture* water;
-    SDL_Texture* ground;
-    SDL_Texture* groundShadow;
+    SDL_Texture* tileSprite;
     
     int map[Map::MAP_HEIGHT][Map::MAP_WIDTH];
 };
